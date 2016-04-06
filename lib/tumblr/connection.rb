@@ -15,6 +15,8 @@ module Tumblr
         :url => "#{api_scheme}://#{api_host}/"
       }
 
+      default_options[:proxy] = Tumblr.proxy if Tumblr.proxy != nil
+
       client = Faraday.default_adapter
 
       Faraday.new(default_options.merge(options)) do |conn|
